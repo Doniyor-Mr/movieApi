@@ -3,7 +3,7 @@ language: node_js
 
 # versiasini yozamiz node ni
 node_js:
-  - 14
+  - 14.16.1
 
 #yuklidi
 before_install:
