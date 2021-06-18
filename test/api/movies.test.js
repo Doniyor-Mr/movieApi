@@ -7,10 +7,10 @@ const server = require ('../../app') // app.jsdan userni get gacham oladi
 chai.use (chaiHttp)
 
 //todo ===================================================================================
+let token
+describe ('/api/movies larni testdan otqizdik', () => {
 
-describe ('/api/movies larni testdan otqizdik', (done) => {
-
-    before ((done) => {
+    before((done) => {
         chai.request (server) // app.jsdani teksir
             .post ('/auth') // agar tokendan otgan bolsa
             .send ({username: 'kamediya', password: '12345'}) // parol stringda chaqiriladi
@@ -18,6 +18,7 @@ describe ('/api/movies larni testdan otqizdik', (done) => {
                 token = res.body.token // komediyani tokeni oziga ovoladi
                 done (); // uni tugat
             })
+
     })
     //todo ===================================================================================
     // -----  token larni solishtirish
@@ -86,7 +87,6 @@ describe ('/api/movies larni testdan otqizdik', (done) => {
                 .end ((err, res) => { // va togri bolsa 200 bn ishlatamiz
                     res.should.have.status (200)
                     res.body.should.be.a ('object' ) // ularni object koriniwda qaytaramiz
-
                     //malumotlarini oladi
                     res.body.should.have.property ('title')
                     res.body.should.have.property ('category')
