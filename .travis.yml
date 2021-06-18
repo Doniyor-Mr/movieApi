@@ -1,0 +1,15 @@
+# tili node js
+language: node_js
+
+# versiasini yozamiz node ni
+node_js:
+  - 14
+
+#yuklidi
+before_install:
+  - npm install
+  - export NODE_ENV=production
+
+#hama scriptlani test qiladi
+script:
+  - npm test
